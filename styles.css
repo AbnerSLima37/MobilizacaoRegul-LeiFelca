@@ -1,0 +1,890 @@
+/* ================================================================
+   MOBILIZAÇÃO CIDADÃ — styles.css
+   Estrutura:
+   1. Variáveis e Reset
+   2. Tipografia
+   3. Layout Base
+   4. Cabeçalho
+   5. Barra de Progresso
+   6. Cards (painéis de etapa)
+   7. Formulário
+   8. Preview do E-mail
+   9. Botões
+   10. Caixas de Aviso e Erro
+   11. Rodapé
+   12. Animações
+   13. Responsividade
+   14. Acessibilidade (foco, motion)
+================================================================ */
+
+/* ----------------------------------------------------------------
+   1. VARIÁVEIS E RESET
+---------------------------------------------------------------- */
+:root {
+  /* Paleta principal */
+  --color-bg:         #F7F6F2;       /* fundo geral — off-white quente */
+  --color-surface:    #FFFFFF;       /* fundo de cards */
+  --color-border:     #E0DCCE;       /* bordas suaves */
+  --color-text:       #1C1B18;       /* texto principal */
+  --color-text-muted: #6B6860;       /* texto secundário */
+  --color-accent:     #1A4D8F;       /* azul institucional */
+  --color-accent-dark:#123566;       /* azul hover */
+  --color-accent-light:#EEF3FB;      /* azul muito claro */
+  --color-success:    #1A6B45;       /* verde de sucesso */
+  --color-warning-bg: #FFF8E6;       /* fundo de aviso */
+  --color-warning-bd: #E6A817;       /* borda de aviso */
+  --color-error-bg:   #FFF0EE;       /* fundo de erro */
+  --color-error-bd:   #CC3922;       /* borda de erro */
+  --color-step-done:  #1A6B45;       /* etapa concluída */
+  --color-step-next:  #B8B3A4;       /* etapa futura */
+
+  /* Tipografia */
+  --font-body:        'Georgia', 'Times New Roman', serif;
+  --font-ui:          system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:        'Courier New', Courier, monospace;
+
+  /* Escala de tipo */
+  --text-xs:    0.75rem;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-lg:    1.125rem;
+  --text-xl:    1.375rem;
+  --text-2xl:   1.75rem;
+  --text-3xl:   2.25rem;
+
+  /* Espaçamento */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Layout */
+  --container-max:    720px;
+  --radius-sm:        4px;
+  --radius-md:        8px;
+  --radius-lg:        12px;
+  --radius-full:      9999px;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+
+  /* Transições */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+}
+
+/* Reset minimalista */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: var(--color-accent); }
+a:hover { color: var(--color-accent-dark); }
+
+/* ----------------------------------------------------------------
+   2. TIPOGRAFIA
+---------------------------------------------------------------- */
+h1, h2, h3 {
+  font-family: var(--font-body);
+  line-height: 1.25;
+  font-weight: normal;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-xl); }
+h3 { font-size: var(--text-lg); font-weight: bold; }
+
+p { margin-bottom: var(--space-4); }
+p:last-child { margin-bottom: 0; }
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--color-border);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+}
+
+/* ----------------------------------------------------------------
+   3. LAYOUT BASE
+---------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.main-content {
+  flex: 1;
+  padding: var(--space-10) 0 var(--space-16);
+}
+
+/* ----------------------------------------------------------------
+   4. CABEÇALHO
+---------------------------------------------------------------- */
+.site-header {
+  background: var(--color-accent);
+  color: #FFFFFF;
+  padding: var(--space-10) 0 var(--space-8);
+  text-align: center;
+  /* Linha fina na base para separar do fundo */
+  border-bottom: 3px solid var(--color-accent-dark);
+}
+
+.site-title {
+  font-size: var(--text-3xl);
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.site-subtitle {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 0;
+}
+
+/* ----------------------------------------------------------------
+   5. BARRA DE PROGRESSO
+---------------------------------------------------------------- */
+.progress-bar {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-4) 0 var(--space-3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  list-style: none;
+  margin-bottom: var(--space-3);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0 var(--space-5);
+  position: relative;
+  cursor: default;
+}
+
+/* Linha conectora entre etapas */
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: calc(50% + 14px);
+  width: calc(100% - 28px);
+  height: 2px;
+  background: var(--color-border);
+  transition: background var(--transition-slow);
+}
+
+.step.done::after {
+  background: var(--color-step-done);
+}
+
+/* Círculo numerado */
+.step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-step-next);
+  color: #FFFFFF;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-normal), transform var(--transition-normal);
+  position: relative;
+  z-index: 1;
+}
+
+.step.active .step-number {
+  background: var(--color-accent);
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.step.done .step-number {
+  background: var(--color-step-done);
+}
+
+.step.done .step-number::before {
+  content: '✓';
+}
+
+/* Oculta o número quando marcado */
+.step.done .step-number {
+  font-size: 0; /* esconde número */
+  font-size: var(--text-sm); /* re-exibe — o conteúdo vem do ::before */
+}
+
+/* Label da etapa */
+.step-label {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  transition: color var(--transition-normal);
+  white-space: nowrap;
+}
+
+.step.active .step-label {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.step.done .step-label {
+  color: var(--color-step-done);
+}
+
+/* Barra de progresso horizontal */
+.progress-track {
+  height: 3px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  width: 25%; /* começa na etapa 1 */
+  transition: width var(--transition-slow);
+}
+
+/* ----------------------------------------------------------------
+   6. CARDS — painéis de etapa
+---------------------------------------------------------------- */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+
+  /* Estado inicial para animação de entrada */
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+/* Quando o painel está ativo e visível */
+.card.active,
+.card.step-panel:not([hidden]) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-header {
+  padding: var(--space-6) var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-accent-light);
+}
+
+.step-badge {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.card-title {
+  font-size: var(--text-xl);
+  color: var(--color-text);
+}
+
+.card-body {
+  padding: var(--space-8);
+}
+
+.card-footer {
+  padding: var(--space-6) var(--space-8);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+.card-footer--split {
+  justify-content: space-between;
+}
+
+.card-footer--column {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+
+/* ----------------------------------------------------------------
+   CONTEÚDO DA ETAPA 1 — Contexto
+---------------------------------------------------------------- */
+.context-block {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.context-block:last-of-type {
+  border-bottom: none;
+}
+
+.context-heading {
+  font-size: var(--text-base);
+  font-weight: bold;
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.context-text {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.highlight-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.highlight-item {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+.highlight-icon {
+  color: var(--color-accent);
+  font-size: var(--text-lg);
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------------------
+   7. FORMULÁRIO
+---------------------------------------------------------------- */
+.form-notice {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  background: var(--color-accent-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-6);
+  line-height: 1.5;
+}
+
+.form-group {
+  margin-bottom: var(--space-5);
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.required {
+  color: var(--color-error-bd);
+  margin-left: 2px;
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.form-input.invalid {
+  border-color: var(--color-error-bd);
+  box-shadow: 0 0 0 3px var(--color-error-bg);
+}
+
+.form-input::placeholder {
+  color: var(--color-step-next);
+  font-style: italic;
+}
+
+/* Select com seta customizada */
+.select-wrapper {
+  position: relative;
+}
+
+.form-select {
+  cursor: pointer;
+  padding-right: var(--space-10);
+}
+
+.select-arrow {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.form-hint {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+  line-height: 1.4;
+}
+
+/* ----------------------------------------------------------------
+   8. PREVIEW DO E-MAIL
+---------------------------------------------------------------- */
+.email-meta {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-5);
+  font-family: var(--font-ui);
+}
+
+.email-meta-row {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  align-items: flex-start;
+}
+
+.email-meta-row:last-child {
+  border-bottom: none;
+}
+
+.email-meta-label {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  min-width: 60px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.email-meta-value {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.email-meta-value--muted {
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-size: var(--text-xs);
+}
+
+.email-preview {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  padding: var(--space-6);
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.email-body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.8;
+  color: var(--color-text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Ícone de envio (etapa 4) */
+.send-hero {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.send-icon {
+  font-size: 3.5rem;
+  display: inline-block;
+  opacity: 0.18;
+  filter: grayscale(1);
+}
+
+.send-instruction {
+  font-size: var(--text-lg);
+  text-align: center;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+}
+
+/* Feedback de cópia */
+.copy-feedback {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-success);
+  text-align: center;
+  padding: var(--space-2) 0;
+  animation: fadeIn var(--transition-normal);
+}
+
+/* ----------------------------------------------------------------
+   9. BOTÕES
+---------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Primário */
+.btn-primary {
+  background: var(--color-accent);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-dark);
+  box-shadow: var(--shadow-md);
+  color: #FFFFFF;
+}
+
+/* Secundário */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+
+.btn-secondary:hover {
+  background: var(--color-accent-light);
+}
+
+/* Ghost */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  font-weight: 400;
+}
+
+.btn-ghost:hover {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Tamanhos */
+.btn-large {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-lg);
+  border-radius: var(--radius-md);
+}
+
+.btn-small {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.btn-arrow { font-style: normal; }
+.btn-arrow--left { order: -1; }
+.btn-icon { font-style: normal; }
+
+/* ----------------------------------------------------------------
+   10. CAIXAS DE AVISO E ERRO
+---------------------------------------------------------------- */
+.warning-box {
+  background: var(--color-warning-bg);
+  border: 1px solid var(--color-warning-bd);
+  border-left: 4px solid var(--color-warning-bd);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  margin-top: var(--space-5);
+  font-family: var(--font-ui);
+}
+
+.warning-title {
+  font-weight: 700;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+.warning-text {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.error-box {
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error-bd);
+  border-left: 4px solid var(--color-error-bd);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  margin-top: var(--space-5);
+  font-family: var(--font-ui);
+}
+
+.error-title {
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--color-error-bd);
+  margin-bottom: var(--space-2);
+}
+
+.error-list {
+  list-style: disc;
+  margin-left: var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* ----------------------------------------------------------------
+   11. RODAPÉ
+---------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-text);
+  color: rgba(255,255,255,0.75);
+  padding: var(--space-8) 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-text {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.footer-text--muted {
+  color: rgba(255,255,255,0.45);
+  font-size: var(--text-xs);
+  margin-top: var(--space-2);
+}
+
+.footer-link {
+  color: rgba(255,255,255,0.65);
+  text-underline-offset: 3px;
+}
+
+.footer-link:hover {
+  color: #FFFFFF;
+}
+
+/* ----------------------------------------------------------------
+   12. ANIMAÇÕES
+---------------------------------------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(26,77,143,0.35); }
+  50%       { box-shadow: 0 0 0 8px rgba(26,77,143,0); }
+}
+
+/* Classe utilitária de entrada */
+.animate-in {
+  animation: slideInUp var(--transition-slow) both;
+}
+
+/* Pulso no botão principal da etapa 4 */
+#btnMailto {
+  animation: pulse 2.4s infinite;
+}
+
+#btnMailto:hover {
+  animation: none;
+}
+
+/* ----------------------------------------------------------------
+   13. RESPONSIVIDADE
+---------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  .site-title {
+    font-size: var(--text-2xl);
+  }
+
+  .card-header,
+  .card-body,
+  .card-footer {
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+  }
+
+  /* Esconde os labels de etapa em telas muito pequenas */
+  .step-label {
+    display: none;
+  }
+
+  .steps {
+    gap: 0;
+  }
+
+  .step {
+    padding: 0 var(--space-3);
+  }
+
+  .btn-large {
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--text-base);
+  }
+
+  /* Card footer vira coluna em mobile */
+  .card-footer--split {
+    flex-direction: column-reverse;
+    gap: var(--space-2);
+  }
+
+  .card-footer--split .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .email-preview {
+    max-height: 260px;
+  }
+}
+
+/* ----------------------------------------------------------------
+   14. ACESSIBILIDADE
+---------------------------------------------------------------- */
+
+/* Foco visível para navegação por teclado */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Remove outline padrão do navegador quando não é teclado */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Respeita preferência por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  #btnMailto {
+    animation: none;
+  }
+}
+
+/* Alto contraste */
+@media (forced-colors: active) {
+  .btn-primary {
+    border: 2px solid ButtonText;
+  }
+}
