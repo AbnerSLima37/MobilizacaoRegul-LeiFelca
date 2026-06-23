@@ -17,6 +17,7 @@
  */
 
 /* ================================================================
+/* ================================================================
    A. CONFIGURAÇÃO
    ✏️ EDITE ESTA SEÇÃO para personalizar o conteúdo da campanha.
    Não altere o restante do arquivo — apenas esta seção.
@@ -25,75 +26,106 @@
 const CONFIG = {
 
   /**
-   * DESTINATÁRIOS PRINCIPAIS (campo "Para:")
-   * ✏️ Substitua pelos e-mails reais dos destinatários.
-   * Cada cliente de e-mail exibirá estes endereços no campo "Para:".
-   *
-   * Formato: array de strings com endereços de e-mail.
-   * Exemplo:  ['destinatario1@exemplo.gov.br', 'destinatario2@exemplo.gov.br']
-   */
-  TO: [
-    'destinatario1@exemplo.gov.br',      // ✏️ Substitua
-    'destinatario2@exemplo.gov.br',      // ✏️ Substitua
-  ],
-
-  /**
    * DESTINATÁRIOS EM CÓPIA OCULTA — BCC/CCO (campo "Bcc:")
-   * ✏️ Substitua pela lista real de endereços em cópia oculta.
-   * Estes endereços NÃO serão visíveis pelos demais destinatários.
-   *
-   * Deixe como array vazio [] se não quiser CCO.
+   * Lista de e-mails dos senadores da CDH. 
+   * Ao enviar para si mesmo com estes e-mails em BCC, o sistema evita bloqueios por SPAM.
    */
   BCC: [
-    'cco1@exemplo.org.br',               // ✏️ Substitua
-    'cco2@exemplo.org.br',               // ✏️ Substitua
+    'sen.damaresalves@senado.leg.br', 
+    'sen.maragabrilli@senado.leg.br', 
+    'sen.flavioarns@senado.leg.br', 
+    'sen.eduardobraga@senado.leg.br', 
+    'sen.sergiomoro@senado.leg.br', 
+    'sen.marcosdoval@senado.leg.br', 
+    'sen.cidgomes@senado.leg.br', 
+    'sen.astronautamarcospontes@senado.leg.br', 
+    'sen.fabianocontarato@senado.leg.br', 
+    'sen.giordano@senado.leg.br', 
+    'sen.pliniovalerio@senado.leg.br', 
+    'sen.jussaralima@senado.leg.br', 
+    'sen.anapaulalobato@senado.leg.br', 
+    'sen.jaimebagattoli@senado.leg.br', 
+    'sen.magnomalta@senado.leg.br', 
+    'sen.marcosrogerio@senado.leg.br', 
+    'sen.rogeriocarvalho@senado.leg.br', 
+    'sen.humbertocosta@senado.leg.br', 
+    'sen.drhiran@senado.leg.br', 
+    'sen.alessandrovieira@senado.leg.br'
   ],
 
   /**
    * LIMITE DE TAMANHO DO MAILTO (em caracteres)
-   * Clientes de e-mail têm limites diferentes para URLs mailto:.
-   * - Gmail (web):     ~2.000 caracteres
-   * - Outlook:         ~2.083 caracteres
-   * - Apple Mail:      sem limite prático
-   * - Thunderbird:     sem limite prático
-   * - Android/iOS:     ~2.000 caracteres (varia)
-   *
-   * Usamos 1.800 como valor conservador para máxima compatibilidade.
-   * ✏️ Ajuste se necessário, mas não ultrapasse 2.000.
+   * Aumentado ligeiramente para 2000 devido à extensão do manifesto técnico,
+   * mantendo compatibilidade com a maioria dos gerenciadores modernos.
    */
-  MAILTO_CHAR_LIMIT: 1800,
+  MAILTO_CHAR_LIMIT: 2000,
 
   /**
    * TEXTO BASE DO E-MAIL
-   * ✏️ Substitua pelo corpo real da mensagem.
-   *
-   * Use a marcação {SAUDACAO} onde a saudação deve aparecer.
-   * Use a marcação {NOME} onde o nome do remetente deve aparecer.
-   * Use a marcação {ENCERRAMENTO} onde o encerramento deve aparecer.
-   *
-   * O texto resultante ficará assim:
-   *
-   *   [SAUDACAO],
-   *
-   *   [corpo do e-mail]
-   *
-   *   [ENCERRAMENTO],
-   *   [NOME]
+   * Modelo estruturado com base no manifesto enviado.
+   * 
+   * ATENÇÃO AO FORMULÁRIO HTML: Para este modelo funcionar perfeitamente, 
+   * garanta que seu formulário possua também os campos para Cidade e Estado,
+   * mapeados no objeto 'state.formData' do seu script.
    */
-  EMAIL_BODY_TEMPLATE: `{SAUDACAO},
+  EMAIL_BODY_TEMPLATE: `{SAUDACAO} Senadores da Comissão de Direitos Humanos,
 
-[INSIRA AQUI O TEXTO PRINCIPAL DO E-MAIL.]
+Dirijo-me a Vossas Excelências, na condição de cidadão brasileiro, para solicitar o imediato repúdio ao relatório que sugere o arquivamento da SUG 18/2026. A manutenção da redação atual da Lei nº 15.211/2025 trará danos irreparáveis ao ecossistema digital brasileiro. Para impedir que tal panorama se concretize, solicito que seja formulado um Pedido de Vista, apresentado um Voto em Separado pela continuidade da matéria, e que seja considerada a convocação de uma Audiência Pública para debater tecnicamente o tema.
 
-[Parágrafo 2: desenvolva o argumento, cite dados ou impactos concretos.]
+A Sugestão Legislativa 18/2026 obteve expressivos 3.395 votos FAVORÁVEIS contra apenas 223 votos contrários no portal e-Cidadania. Essa margem esmagadora reflete a desaprovação da sociedade civil e do setor de tecnologia frente aos danos significativos impostos pela Lei nº 15.211/2025 ("Lei Felca"/ECA Digital). Embora a proteção de menores no meio digital seja indubitavelmente importante, o desenvolvimento de políticas públicas exige racionalidade técnica, sob o risco de adotarmos medidas ineficazes e desproporcionais que acabem prejudicando o acesso de todos os usuários brasileiros à internet. A redação atual da lei condena a internet brasileira a um estado de vigilância, apagão regional e inviabilidade técnica, enquanto sequer é efetiva para resolver o problema a que se propõe.
 
-[Parágrafo 3: apresente o pedido ou demanda específica.]
+O nosso alerta não é isolado. Diversos especialistas, cientistas e veículos de imprensa já se posicionaram publicamente contra os graves riscos da atual redação da Lei nº 15.211/2025 e sua obrigatoriedade de verificação de identidade dos usuários brasileiros a cada acesso pela internet. Destacam-se os seguintes alertas na mídia:
 
-[Parágrafo 4 opcional: reforce a urgência ou importância da resposta.]
+[CONJUR - Consultor Jurídico]
+- "ECA Digital viola a privacidade de todos. Há alguma alternativa?"
 
-Aguardo um posicionamento sobre o tema.
+[CONVERGÊNCIA DIGITAL]
+- "Inútil e perigoso: Cientistas alertam contra sistemas de verificação de idade na internet"
+
+[GAZETA DO POVO]
+- "Por que a verificação de idade no ECA Digital preocupa especialistas?"
+
+[TECMUNDO]
+- "PL 2628: Quais são os efeitos colaterais da Lei Felca?"
+- "A Lei Felca pode bloquear o Linux no Brasil? - OPINIÃO"
+
+[OBSERVADOR / JORNAL DE NOTÍCIAS]
+- "400 cientistas alertam para riscos das tecnologias de verificação de idade"
+
+Reconhecemos que o debate legislativo exige pragmatismo. Nosso objetivo não é criar um impasse, mas apontar que a inviabilidade técnica de certos dispositivos, na prática, traduz a justificativa de proteção em um vetor de exclusão social e isolamento cibernético (a chamada "Splinternet"). Por isso, solicitamos que o arquivamento seja rejeitado e que a SUG 18/2026 seja utilizada como base para uma revisão cirúrgica dos artigos nocivos, com o acompanhamento de especialistas em cibersegurança e infraestrutura da rede.
+
+Arquivar esta sugestão significa negar e invalidar um effort popular massivo: a Ideia Legislativa original mobilizou 20.000 assinaturas em menos de 4 dias, alcançando a marca histórica de 33.587 apoios de cidadãos no portal e-Cidadania. Enterrar essa pauta agora, ignorando a sua origem, seria rejeitar o verdadeiro espírito da participação democrática e virar as costas para a sociedade civil.
+
+Destaco aos senhores os dispositivos que exigem alteração ou revogação urgente:
+
+1. QUEBRA DE PRIVACIDADE E RISCO DE VAZAMENTO DE DADOS (Art. 9)
+Ao vedar a autodeclaração e obrigar a verificação de identidade a cada acesso, a lei força milhões de adultos a entregarem biometria facial e documentos pessoais para plataformas privadas terceirizadas. Vazamentos recentes provam que não existem bancos de dados infalíveis. Como menciona a matéria do portal "Convergência Digital": "Uma carta aberta assinada por 438 cientistas e pesquisadores especializados em segurança e privacidade digital de 32 países declarou um posicionamento contundente contra a implementação de tecnologias de verificação de idade na internet. Eles alertam que as soluções atualmente propostas podem causar 'mais danos do que benefícios'. Tem grande potencial para aumentar a desigualdade e a discriminação na esfera digital."
+
+2. BLOQUEIOS REGIONAIS E A INVIABILIDADE TÉCNICA PARA PLATAFORMAS INDEPENDENTES (Arts. 35 e 40)
+A exigência de representação legal (CNPJ) no Brasil e as multas financeiras severas tratam todo o ecossistema da internet, de pequenos blogs e sites independentes a fóruns de nicho, como se fossem "Big Techs". Redes sociais independentes, como a plataforma SpaceHey, já se encontram inacessíveis. Esse cenário de isolamento fere diretamente a Lei nº 12.965/2014 (Marco Civil da Internet) e as recomendações de Não-Fragmentação do CGIbr. Muitas plataformas estrangeiras preferirão o "overblocking" (bloquear o IP brasileiro) a arcar com os custos de implementação.
+
+3. DANOS PARA O SOFTWARE LIVRE E MONOPOLIZAÇÃO (Art. 12)
+Projetos de código aberto como o MidnightBSD e o Arch Linux 32 declararam incapacidade técnica e financeira de se adequarem, penalizando a comunidade de software livre e impedindo desenvolvedores independentes de atuarem.
+
+4. PREJUÍZOS AO CENÁRIO NACIONAL DE JOGOS ELETRÔNICOS (Art. 20)
+Ao vedar mecânicas comuns na indústria (como as loot boxes) em qualquer jogo acessado por menores, a lei força estúdios do mundo todo a implementarem barreiras caras de identidade ou saírem do mercado nacional. Jogos como "Dragon Ball Legends" sumiram das lojas, e títulos da Riot Games passaram a exigir dados altamente invasivos e biometria de jogadores comuns.
+
+5. PRECEDENTE AUTORITÁRIO E CENSURA DE REDE (Art. 29)
+O Artigo 29, que abre margem para o Poder Executivo obrigar a detecção e o bloqueio de VPNs, cria um precedente perigoso de controle de tráfego que aproxima a estrutura de fiscalização brasileira daquela adotada por regimes autoritários, como a agência russa "Roskomnadzor".
+
+6. A INSEGURANÇA JURÍDICA DO TERMO "ACESSO PROVÁVEL" E O OVERBLOCKING
+A utilização de termos vagos cria uma insegurança jurídica paralisante. Uma redação ampla demais não protege a criança; ela serve apenas como ferramenta de censura prévia, restringindo o direito do adulto ao livre acesso à informação.
+
+A VERDADEIRA SOLUÇÃO TÉCNICA:
+A proteção deve ser feita na base, eliminando a necessidade de coleta invasiva de documentos. Medidas eficazes incluem: ferramentas de controle parental configuradas no próprio dispositivo pelo responsável no setup do aparelho, foco absoluto na remoção de conteúdos criminosos reais e investimento em educação digital.
+
+Apelo ao bom senso desta Comissão: não permitam o arquivamento silencioso da SUG 18/2026. Solicito respeitosamente que Vossas Excelências considerem a formulação de um Pedido de Vista e a realização de uma Audiência Pública.
 
 {ENCERRAMENTO},
-{NOME}`,
+
+{NOME}
+Cidadão Brasileiro | Eleitor
+{CIDADE} - {ESTADO}`,
 
 };
 
@@ -105,16 +137,15 @@ Aguardo um posicionamento sobre o tema.
 /** @type {{ currentStep: number, formData: Object, mailtoUrl: string, emailText: string }} */
 const state = {
   currentStep: 1,
-  formData: {
+ formData: {
     name:     '',
     email:    '',
     greeting: '',
     subject:  '',
     closing:  '',
+    city:     '', // Adicionado
+    stateName:'', // Adicionado
   },
-  mailtoUrl:  '',
-  emailText:  '',
-};
 
 /* ================================================================
    C. NAVEGAÇÃO ENTRE ETAPAS
@@ -350,11 +381,13 @@ function clearFormErrors() {
  * Coleta os valores do formulário e os salva no estado.
  */
 function collectFormData() {
-  state.formData.name     = getField('inputName').trim();
-  state.formData.email    = getField('inputEmail').trim();
-  state.formData.greeting = getField('selectGreeting');
-  state.formData.subject  = getField('selectSubject');
-  state.formData.closing  = getField('selectClosing');
+  state.formData.name      = getField('inputName').trim();
+  state.formData.email     = getField('inputEmail').trim();
+  state.formData.greeting  = getField('selectGreeting');
+  state.formData.subject   = getField('selectSubject');
+  state.formData.closing   = getField('selectClosing');
+  state.formData.city      = getField('inputCity').trim();     // Certifique-se que o ID no HTML é inputCity
+  state.formData.stateName = getField('inputState').trim();    // Certifique-se que o ID no HTML é inputState
 }
 
 /**
@@ -363,48 +396,47 @@ function collectFormData() {
  */
 function buildEmailBody() {
   return CONFIG.EMAIL_BODY_TEMPLATE
-    .replace(/\{SAUDACAO\}/g, state.formData.greeting)
-    .replace(/\{NOME\}/g,     state.formData.name)
-    .replace(/\{ENCERRAMENTO\}/g, state.formData.closing);
+    .replace(/\{SAUDACAO\}/g,     state.formData.greeting)
+    .replace(/\{NOME\}/g,         state.formData.name)
+    .replace(/\{ENCERRAMENTO\}/g, state.formData.closing)
+    .replace(/\{CIDADE\}/g,       state.formData.city)
+    .replace(/\{ESTADO\}/g,       state.formData.stateName);
 }
 
 /**
  * Gera o e-mail, preenche o preview e constrói a URL mailto.
- * Chamado antes de exibir a etapa 3.
  */
 function generateAndPreview() {
   const body      = buildEmailBody();
   state.emailText = body;
 
-  // Constrói a URL mailto
+  // LÓGICA DO SEU PASSO 1:
+  // "Para" (To): recebe o e-mail do próprio usuário que preencheu o formulário.
+  // "Cco" (Bcc): recebe a lista de senadores configurada em CONFIG.BCC.
   state.mailtoUrl = buildMailtoUrl(
-    CONFIG.TO,
-    CONFIG.BCC,
+    [state.formData.email], 
+    CONFIG.BCC,             
     state.formData.subject,
     body
   );
 
-  // Preenche os campos de preview
   fillPreview();
-
+  checkMailtoSize(state.mailtoUrl);
+}
   // Verifica o tamanho e exibe aviso se necessário
   checkMailtoSize(state.mailtoUrl);
 }
-
-/* ================================================================
-   F. PREENCHIMENTO DO PREVIEW
-================================================================ */
 
 /**
  * Preenche os campos de metadados e corpo do e-mail na etapa 3.
  */
 function fillPreview() {
-  setText('previewTo',      CONFIG.TO.join(', '));
+  setText('previewTo',      state.formData.email + " (Seu e-mail)");
   setText('previewFrom',    state.formData.email);
   setText('previewSubject', state.formData.subject);
 
   const bccText = CONFIG.BCC.length > 0
-    ? `${CONFIG.BCC.length} endereço(s) em cópia oculta`
+    ? `${CONFIG.BCC.length} e-mails de Senadores da CDH adicionados em Cópia Oculta (BCC)`
     : 'Nenhum';
   setText('previewBcc', bccText);
 
