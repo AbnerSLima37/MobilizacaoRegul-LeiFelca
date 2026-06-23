@@ -1,6 +1,6 @@
 /**
  * ================================================================
- * MOBILIZAÇÃO CIDADÃ — script.js (VERSÃO CORRIGIDA)
+ * MOBILIZAÇÃO CIDADÃ — script.js (VERSÃO FINAL REVISADA)
  * ================================================================
  */
 
@@ -62,9 +62,9 @@ O nosso alerta não é isolado. Diversos especialistas, cientistas e veículos d
 [OBSERVADOR / JORNAL DE NOTÍCIAS]
 - "400 cientistas alertam para riscos das tecnologias de verificação de idade"
 
-Reconhecemos que o debate legislativo exige pragmatismo. Nosso objetivo não é criar um impasse, mas apontar que a inviabilidade técnica de certos dispositivos, na prática, traduz a justificativa de proteção em um vetor de exclusão social e isolamento cibernético (a chamada "Splinternet"). Por isso, solicitamos que o arquivamento seja rejeitado e que a SUG 18/2026 seja utilizada como base para uma revisão cirúrgica dos artigos nocivos, com o acompanhamento de especialistas em cibersegurança e infraestrutura da rede.
+Reconhecemos que o debate legislativo exige pragmatismo. Nosso objetivo não é criar um impasse, mas apontar que a inviabilidade técnica de certos dispositivos, na prática, traduz a justificativa de proteção em um vetor de exclusão social e isolamento cibernético (a chamada "Splinternet"). Por isso, solicitamos que o arquivamento seja rejeitado e que a SUG 18/2026 seja utilizada como base para uma revision cirúrgica dos artigos nocivos, com o acompanhamento de especialistas em cibersegurança e infraestrutura da rede.
 
-Arquivar esta sugestão significa negar e invalidar um esforço popular massivo: a Ideia Legislativa original mobilizou 20.000 assinaturas em menos de 4 dias, alcançando a marca histórica de 33.587 apoios de cidadãos no portal e-Cidadania. Enterrar essa pauta agora, ignorando a sua origem, seria rejeitar o verdadeiro espírito da participação democrática e virar as costas para a sociedade civil.
+Arquivar esta sugestão significa negar e invalidar um effort popular massivo: a Ideia Legislativa original mobilizou 20.000 assinaturas em menos de 4 dias, alcançando a marca histórica de 33.587 apoios de cidadãos no portal e-Cidadania. Enterrar essa pauta agora, ignorando a sua origem, seria rejeitar o verdadeiro espírito da participação democrática e virar as costas para a sociedade civil.
 
 Destaco aos senhores os dispositivos que exigem alteração ou revogação urgente:
 
@@ -78,7 +78,7 @@ A exigência de representação legal (CNPJ) no Brasil e as multas financeiras s
 Projetos de código aberto como o MidnightBSD e o Arch Linux 32 declararam incapacidade técnica e financeira de se adequarem, penalizando a comunidade de software livre e impedindo desenvolvedores independentes de atuarem.
 
 4. PREJUÍZOS AO CENÁRIO NACIONAL DE JOGOS ELETRÔNICOS (Art. 20)
-Ao vedar mecânicas comuns na indústria (como as loot boxes) em qualquer jogo acessado por menores, a lei força estúdios do mundo todo a implementarem barreiras caras de identidade ou saírem do mercado nacional. Jogos como "Dragon Ball Legends" sumiram das lojas, e títulos da Riot Games passaram a exigir dados altamente invasivos e biometria de jogadores comuns.
+Ao vedar mecânicas comuns na indústria (como as loot boxes) in qualquer jogo acessado por menores, a lei força estúdios do mundo todo a implementarem barreiras caras de identidade ou saírem do mercado nacional. Jogos como "Dragon Ball Legends" sumiram das lojas, e títulos da Riot Games passaram a exigir dados altamente invasivos e biometria de jogadores comuns.
 
 5. PRECEDENTE AUTORITÁRIO E CENSURA DE REDE (Art. 29)
 O Artigo 29, que abre margem para o Poder Executivo obrigar a detecção e o bloqueio de VPNs, cria um precedente perigoso de controle de tráfego que aproxima a estrutura de fiscalização brasileira daquela adotada por regimes autoritários, como a agência russa "Roskomnadzor".
@@ -239,6 +239,33 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+// Expõe globalmente apenas as funções remanescentes chamadas por atributos inline remotos (segurança extra)
+window.handleMailtoClick = function(event) {
+  event.preventDefault();
+  const url = state.mailtoUrl;
+  if (!url) {
+    toggleHidden('mailtoWarning', false);
+    return;
+  }
+  tryOpenMailto(url);
+};
+
+window.copyEmailContent = function() {
+  const content = [
+    `Para: ${state.formData.email}`,
+    `Cco/Bcc: ${CONFIG.BCC.join(', ')}`,
+    `Assunto: ${state.formData.subject}`,
+    '',
+    state.emailText
+  ].join('\n');
+
+  navigator.clipboard.writeText(content).then(() => {
+    showCopyFeedback(true);
+  }).catch(() => {
+    showCopyFeedback(fallbackCopy(content));
+  });
+};
+
 function showFormErrors(errors) {
   const box  = document.getElementById('formErrors');
   const list = document.getElementById('errorList');
@@ -347,16 +374,6 @@ function checkMailtoSize(url) {
   toggleHidden('sizeSendWarning', !isTooBig);
 }
 
-function handleMailtoClick(event) {
-  event.preventDefault();
-  const url = state.mailtoUrl;
-  if (!url) {
-    showMailtoWarning();
-    return;
-  }
-  tryOpenMailto(url);
-}
-
 function tryOpenMailto(url) {
   if (!url || !url.startsWith('mailto:')) return false;
   const link = document.createElement('a');
@@ -368,34 +385,9 @@ function tryOpenMailto(url) {
   return true;
 }
 
-function showMailtoWarning() {
-  toggleHidden('mailtoWarning', false);
-}
-
 /* ================================================================
-   H. CÓPIA PARA ÁREA DE TRANSFERÊNCIA
+   H. CÓPIA AUXILIAR DE SEGURANÇA
 ================================================================ */
-
-async function copyEmailContent() {
-  const content = buildCopyContent();
-  try {
-    await navigator.clipboard.writeText(content);
-    showCopyFeedback(true);
-  } catch {
-    const success = fallbackCopy(content);
-    showCopyFeedback(success);
-  }
-}
-
-function buildCopyContent() {
-  return [
-    `Para: ${state.formData.email}`,
-    `Cco/Bcc: ${CONFIG.BCC.join(', ')}`,
-    `Assunto: ${state.formData.subject}`,
-    '',
-    state.emailText
-  ].join('\n');
-}
 
 function showCopyFeedback(success) {
   const el = document.getElementById('copyFeedback');
@@ -462,19 +454,32 @@ function prepareStep4() {
 }
 
 /* ================================================================
-   J. INICIALIZAÇÃO
+   J. INICIALIZAÇÃO E GERENCIAMENTO DE EVENTOS UNIFICADO
 ================================================================ */
 
 function init() {
   goToStep(1);
   attachLiveValidation();
 
-  const btnToStep4 = document.querySelector('#panel-3 .btn-primary');
-  if (btnToStep4) {
-    btnToStep4.addEventListener('click', () => {
-      prepareStep4();
-    });
-  }
+  // Mapeamento nativo dos botões mapeados por ID
+  const binders = [
+    { id: 'btnStep1Next', action: () => goToStep(2) },
+    { id: 'btnStep2Back', action: () => goToStep(1) },
+    { id: 'btnStep2Next', action: () => validateAndPreview() },
+    { id: 'btnStep3Back', action: () => goToStep(2) },
+    { id: 'btnStep3Next', action: () => { prepareStep4(); goToStep(4); } },
+    { id: 'btnRestart',   action: () => goToStep(1) }
+  ];
+
+  binders.forEach(binder => {
+    const btn = document.getElementById(binder.id);
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        binder.action();
+      });
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', init);
