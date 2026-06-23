@@ -1,6 +1,6 @@
 /**
  * ================================================================
- * MOBILIZAÇÃO CIDADÃ — script.js (VERSÃO CORRIGIDA DEFINITIVA)
+ * MOBILIZAÇÃO CIDADÃ — script.js (VERSÃO FINAL CONSOLIDADA)
  * ================================================================
  */
 
@@ -327,30 +327,13 @@ function fillPreview() {
 }
 
 /* ================================================================
-   G. PROTOCOLO MAILTO
+   G. PROTOCOLO MAILTO (MÉTODO CORRIGIDO SEM URLSEARCHPARAMS)
 ================================================================ */
-
-function buildMailtoUrl(to, bcc, subject, body) {
-  const params = new URLSearchParams();
-  if (bcc.length > 0) {
-    params.set('bcc', bcc.join(','));
-  }
-  params.set('subject', subject);
-  params.set('body', body);
-
-  return `mailto:${to.join(',')}?${params.toString()}`;
-}
-
-function checkMailtoSize(url) {
-  const isTooBig = url.length > CONFIG.MAILTO_CHAR_LIMIT;
-  toggleHidden('sizeWarning', !isTooBig);
-  toggleHidden('sizeSendWarning', !isTooBig);
-}
 
 function buildMailtoUrl(to, bcc, subject, body) {
   const targetTo = to.join(',');
   
-  // Usamos encodeURIComponent e trocamos manualmente eventuais codificações problemáticas
+  // Codificação limpa que preserva espaços reais como %20 (impede os sinais de '+')
   const targetSubject = encodeURIComponent(subject);
   const targetBody = encodeURIComponent(body);
   
@@ -361,6 +344,23 @@ function buildMailtoUrl(to, bcc, subject, body) {
   }
 
   return url;
+}
+
+function checkMailtoSize(url) {
+  const isTooBig = url.length > CONFIG.MAILTO_CHAR_LIMIT;
+  toggleHidden('sizeWarning', !isTooBig);
+  toggleHidden('sizeSendWarning', !isTooBig);
+}
+
+function tryOpenMailto(url) {
+  if (!url || !url.startsWith('mailto:')) return false;
+  const link = document.createElement('a');
+  link.href  = url;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  return true;
 }
 
 /* ================================================================
