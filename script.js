@@ -39,60 +39,50 @@ const CONFIG = {
   MAILTO_CHAR_LIMIT: 2000,
 
   EMAIL_BODY_TEMPLATE: `{SAUDACAO} Senadores da Comissão de Direitos Humanos,
-
-Dirijo-me a Vossas Excelências, na condição de cidadão brasileiro, para solicitar o imediato repúdio ao relatório que sugere o arquivamento da SUG 18/2026. A manutenção da redação atual da Lei nº 15.211/2025 trará danos irreparáveis ao ecossistema digital brasileiro. Para impedir que tal panorama se concretize, solicito que seja formulado um Pedido de Vista, apresentado um Voto em Separado pela continuidade da matéria, e que seja considerada a convocação de uma Audiência Pública para debater tecnicamente o tema.
-
-A Sugestão Legislativa 18/2026 obteve expressivos 3.395 votos FAVORÁVEIS contra apenas 223 votos contrários no portal e-Cidadania. Essa margem esmagadora reflete a desaprovação da sociedade civil e do setor de tecnologia frente aos danos significativos impostos pela Lei nº 15.211/2025 ("Lei Felca"/ECA Digital). Embora a proteção de menores no meio digital seja indubitavelmente importante, o desenvolvimento de políticas públicas exige racionalidade técnica, sob o risco de adotarmos medidas ineficazes e desproporcionais que acabem prejudicando o acesso de todos os usuários brasileiros à internet. A redação atual da lei condena a internet brasileira a um estado de vigilância, apagão regional e inviabilidade técnica, enquanto sequer é efetiva para resolver o problema a que se propõe.
-
-O nosso alerta não é isolado. Diversos especialistas, cientistas e veículos de imprensa já se posicionaram publicamente contra os graves riscos da atual redação da Lei nº 15.211/2025 e sua obrigatoriedade de verificação de identidade dos usuários brasileiros a cada acesso pela internet. Destacam-se os seguintes alertas na mídia:
-
-[CONJUR - Consultor Jurídico]
-- "ECA Digital viola a privacidade de todos. Há alguma alternativa?"
-
-[CONVERGÊNCIA DIGITAL]
-- "Inútil e perigoso: Cientistas alertam contra sistemas de verificação de idade na internet"
-
-[GAZETA DO POVO]
-- "Por que a verificação de idade no ECA Digital preocupa especialistas?"
-
-[TECMUNDO]
-- "PL 2628: Quais são os efeitos colaterais da Lei Felca?"
-- "A Lei Felca pode bloquear o Linux no Brasil? - OPINIÃO"
-
-[OBSERVADOR / JORNAL DE NOTÍCIAS]
-- "400 cientistas alertam para riscos das tecnologias de verificação de idade"
-
+ 
+Dirijo-me a Vossas Excelências, na condição de cidadão brasileiro, para solicitar o imediato repúdio ao relatório que sugere o arquivamento da SUG 18/2026. A manutenção da redação atual da Lei nº 15.211/2025 trará danos irreparáveis ao ecossistema digital brasileiro. Para evitar esse cenário, solicito que seja formulado um Pedido de Vista, apresentado um Voto em Separado pela continuidade da matéria, e que seja considerada a convocação de uma Audiência Pública para debater tecnicamente o tema.
+ 
+A Sugestão Legislativa 18/2026 obteve expressivos 3.169 votos favoráveis contra apenas 191 contrários no portal e-Cidadania. Essa margem esmagadora reflete a desaprovação da sociedade civil e do setor de tecnologia frente aos danos significativos impostos pela Lei nº 15.211/2025 ("Lei Felca"/ECA Digital). Embora seja indubitavelmente importante a proteção de menores no meio digital, não se deve avaliar políticas públicas unicamente pela emoção, ignorando resultados técnicos e tomando medidas irracionais ou injustas que acabem prejudicando o acesso de todos os usuários à internet. A redação atual da lei condena a internet brasileira a um estado de vigilância, apagão regional e inviabilidade técnica.
+ 
 Reconhecemos que o debate legislativo exige pragmatismo. Nosso objetivo não é criar um impasse, mas apontar que a inviabilidade técnica de certos dispositivos, na prática, traduz a justificativa de proteção em um vetor de exclusão social e isolamento cibernético (a chamada "Splinternet"). Por isso, solicitamos que o arquivamento seja rejeitado e que a SUG 18/2026 seja utilizada como base para uma revisão cirúrgica dos artigos nocivos, com o acompanhamento de especialistas em cibersegurança e infraestrutura da rede.
-
-Arquivar esta sugestão significa negar e invalidar um esforço popular massivo: a Ideia Legislativa original mobilizou 20.000 assinaturas em menos de 4 dias, alcançando a marca histórica de 33.587 apoios de cidadãos no portal e-Cidadania. Enterrar essa pauta agora, ignorando a sua origem, seria rejeitar o verdadeiro espírito da participação democrática e virar as costas para a sociedade civil.
-
+ 
+Arquivar esta sugestão significa negar e invalidar um esforço popular massivo: a Ideia Legislativa original mobilizou 20.000 assinaturas em menos de 4 dias, alcançando a marca histórica de 33.565 apoios de cidadãos no portal e-Cidadania. Enterrar essa pauta agora, ignorando a sua origem, seria rejeitar o verdadeiro espírito da participação democrática e virar as costas para a sociedade civil.
+ 
 Destaco aos senhores os dispositivos que exigem alteração ou revogação urgente:
-
+ 
 1. QUEBRA DE PRIVACIDADE E RISCO DE VAZAMENTO DE DADOS (Art. 9)
-Ao vedar a autodeclaração e obrigar a verificação de identidade a cada acesso, a lei força milhões de adultos a entregarem biometria facial e documentos pessoais para plataformas privadas terceirizadas. Vazamentos recentes provam que não existem bancos de dados infalíveis. Como menciona a matéria do portal "Convergência Digital": "Uma carta aberta assinada por 438 cientistas e pesquisadores especializados em segurança e privacidade digital de 32 países declarou um posicionamento contundente contra a implementação de tecnologias de verificação de idade na internet. Eles alertam que as soluções atualmente propostas podem causar 'mais danos do que benefícios'. Tem grande potencial para aumentar a desigualdade e a discriminação na esfera digital."
-
+Ao vedar a autodeclaração e obrigar a verificação de identidade a cada acesso, a lei força milhões de adultos a entregarem biometria facial e documentos pessoais para plataformas privadas terceirizadas. Vazamentos recentes provam que não existem bancos de dados infalíveis. Uma carta aberta assinada por 438 cientistas e pesquisadores especializados em segurança e privacidade digital de 32 países declarou um posicionamento contundente contra a implementação de tecnologias de verificação de idade na internet. Eles alertam que as soluções atualmente propostas podem causar "mais danos do que benefícios".
+"A verificação etária justifica novas formas de coleta de dados por serviços online. Isso, por si só, aumenta os riscos à privacidade, com dados podendo ser abusados pelo próprio provedor ou vazados em incidentes de segurança", alertam, citando o caso de 70 mil usuários da plataforma Discord que tiveram fotos de documentos vazadas após recorrerem de erros na verificação.
+ 
 2. BLOQUEIOS REGIONAIS E A INVIABILIDADE TÉCNICA PARA PLATAFORMAS INDEPENDENTES (Arts. 35 e 40)
-A exigência de representação legal (CNPJ) no Brasil e as multas financeiras severas tratam todo o ecossistema da internet, de pequenos blogs e sites independentes a fóruns de nicho, como se fossem "Big Techs". Redes sociais independentes, como a plataforma SpaceHey, já se encontram inacessíveis. Esse cenário de isolamento fere diretamente a Lei nº 12.965/2014 (Marco Civil da Internet) e as recomendações de Não-Fragmentação do CGIbr. Muitas plataformas estrangeiras preferirão o "overblocking" (bloquear o IP brasileiro) a arcar com os custos de implementação.
-
+A exigência de representação legal (CNPJ) no Brasil e as multas financeiras severas tratam todo o ecossistema da internet, de pequenos blogs e sites independentes a fóruns de nicho, como se fossem "Big Techs". O resultado imediato já está ocorrendo: plataformas menores não possuem orçamento para complexos sistemas de verificação e estão simplesmente bloqueando o acesso de IPs brasileiros. Redes sociais independentes, como o SpaceHey, já se encontram inacessíveis. Outras, como a tradicional plataforma de artistas Newgrounds, estão sendo forçadas a exigir suporte financeiro pago dos usuários brasileiros apenas para cobrir os custos inviáveis do processo de verificação.
+ 
+Esse cenário de isolamento fere frontalmente a Lei nº 12.965/2014 (Marco Civil da Internet), que estabelece como princípios a garantia da liberdade de expressão, a preservação da natureza global da rede e a responsabilização proporcional de terceiros. Simultaneamente, a redação atual colide frontalmente com a 5ª recomendação fundamental do Comitê Gestor da Internet no Brasil (CGI-br), que determina expressamente a "Não fragmentação: as regras devem preservar o caráter global e aberto da Internet, evitando a criação de 'muros' ou sistemas que isolem o usuário brasileiro da rede mundial". Ao subverter as garantias do Marco Civil, o Brasil caminha para um isolamento digital indesejado, semelhante ao ocorrido no Nepal.
+ 
 3. DANOS PARA O SOFTWARE LIVRE E MONOPOLIZAÇÃO (Art. 12)
-Projetos de código aberto como o MidnightBSD e o Arch Linux 32 declararam incapacidade técnica e financeira de se adequarem, penalizando a comunidade de software livre e impedindo desenvolvedores independentes de atuarem.
-
+As exigências de conformidade sistêmica já isolam o Brasil. Projetos de código aberto como o MidnightBSD (que bloqueou o acesso de brasileiros e alterou sua licença) e o Arch Linux 32 (que encerrou tráfego para o Brasil), declararam incapacidade técnica e financeira de se adequarem. A lei penaliza a comunidade de software livre e impede desenvolvedores independentes de atuarem, monopolizando a produção de softwares nas mãos de grandes empresas.
+ 
 4. PREJUÍZOS AO CENÁRIO NACIONAL DE JOGOS ELETRÔNICOS (Art. 20)
-Ao vedar mecânicas comuns na indústria (como as loot boxes) em qualquer jogo acessado por menores, a lei força estúdios do mundo todo a implementarem barreiras caras de identidade ou saírem do mercado nacional. Jogos como "Dragon Ball Legends" sumiram das lojas, e títulos da Riot Games passaram a exigir dados altamente invasivos e biometria de jogadores comuns.
-
+Ao vedar mecânicas comuns na indústria (como as loot boxes) em qualquer jogo que possa ser acessado por menores, a lei força todos os estúdios do mundo a implementarem sistemas caros e invasivos de checagem de identidade ou a classificarem seus jogos como +18. Na prática, os estúdios e empresas muitas vezes estão optando por bloquear o mercado brasileiro.
+Como efeito colateral, jogos como "Dragon Ball Legends" e "Dragon Ball Z: Dokkan Battle" desapareceram das lojas de aplicativos em território nacional, enquanto outros jogos eletrônicos, como "Dragon Ball Gekishin Squadra" passaram a impossibilitar transações para usuários brasileiros, indisponibilizando a compra de itens no jogo.
+Em paralelo, títulos da Riot Games (League of Legends, Teamfight Tactics, League of Legends: Wild Rift, 2XKO, e Legends of Runeterra) passaram a exigir que os jogadores brasileiros entreguem biometria facial, cartão de crédito, documento de identidade ou número do CPF. O cenário competitivo e o acesso ao lazer digital estão sendo inviabilizados, afastando o Brasil do cenário global de e-sports e entretenimento.
+ 
 5. PRECEDENTE AUTORITÁRIO E CENSURA DE REDE (Art. 29)
-O Artigo 29, que abre margem para o Poder Executivo obrigar a detecção e o bloqueio de VPNs, cria um precedente perigoso de controle de tráfego que aproxima a estrutura de fiscalização brasileira daquela adotada por regimes autoritários, como a agência russa "Roskomnadzor".
-
+O Artigo 29, que abre margem para o Poder Executivo obrigar a detecção e o bloqueio de VPNs, é uma medida desproporcional. Somada à fiscalização prevista para 2027, a lei cria um precedente perigoso de controle de tráfego que aproxima a estrutura de fiscalização brasileira daquela adotada por regimes autoritários que censuram e sufocam o livre fluxo de informação da internet, como a agência russa "Roskomnadzor", que, inicialmente, em 2012, utilizou a mesma justificativa de "proteção infantil" e hoje censura intensivamente a internet na Rússia.
+ 
 6. A INSEGURANÇA JURÍDICA DO TERMO "ACESSO PROVÁVEL" E O OVERBLOCKING
-A utilização de termos vagos cria uma insegurança jurídica paralisante. Uma redação ampla demais não protege a criança; ela serve apenas como ferramenta de censura prévia, restringindo o direito do adulto ao livre acesso à informação.
-
+A utilização de termos vagos e amplos, como a exigência de verificação em locais de "acesso provável por crianças e adolescentes", cria uma insegurança jurídica paralisante. Sob a ameaça de sanções severas, as plataformas adotarão o "overblocking" (bloqueio excessivo). Na dúvida, decidem por bloquear preventivamente o acesso de usuários brasileiros. Uma redação ampla demais não protege a criança; ela serve apenas como uma ferramenta de censura prévia, punindo o cidadão adulto e restringindo seu direito ao livre acesso à informação.
+ 
 A VERDADEIRA SOLUÇÃO TÉCNICA:
-A proteção deve ser feita na base, eliminando a necessidade de coleta invasiva de documentos. Medidas eficazes incluem: ferramentas de controle parental configuradas no próprio dispositivo pelo responsável no setup do aparelho, foco absoluto na remoção de conteúdos criminosos reais e investimento em educação digital.
-
-Apelo ao bom senso desta Comissão: não permitam o arquivamento silencioso da SUG 18/2026. Solicito respeitosamente que Vossas Excelências considerem a formulação de um Pedido de Vista e a realização de uma Audiência Pública.
-
+A proteção deve ser feita na base, eliminando a necessidade de coleta invasiva de documentos ou biometria facial a cada site ou rede social na internet. Medidas eficazes incluem:
+- Configuração de ferramentas de controle parental no dispositivo, definidas pelo adulto responsável no momento da aquisição ou inicialização (setup) do aparelho. Assim, a responsabilidade sobre o acesso infantil permanece sob tutela dos pais, sem expor o cidadão à coleta massiva de dados pessoais.
+- Foco absoluto na remoção imediata de conteúdos reais de abuso e banimento sumário de infratores.
+- Educação digital prévia nas instituições de ensino e conscientização para os pais.
+ 
+Apelo ao bom senso desta Comissão: não permitam o arquivamento silencioso da SUG 18/2026. Solicito respeitosamente que Vossas Excelências considerem a formulação de um Pedido de Vista e a realização de uma Audiência Pública para debater os impactos técnicos e sociais aqui mencionados, ouvindo especialistas técnicos da área. Revisem a Lei 15.211/2025 para garantir a proteção de vulneráveis sem destruir a privacidade, a viabilidade técnica e a liberdade de nossa internet.
+ 
 {ENCERRAMENTO},
-
+ 
 {NOME}
 Cidadão Brasileiro | Eleitor
 {CIDADE} - {ESTADO}`
